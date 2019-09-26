@@ -17,6 +17,10 @@ QTableWidget单元格数据是QTableWidgetItem对象来实现的（即就是不�
 #include <QStringList>
 #include <QHeaderView>
 #include <QComboBox>
+#include <QDateTimeEdit>
+#include <QFont>
+#include <QScrollBar>
+
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -198,9 +202,9 @@ Widget::Widget(QWidget *parent) :
     tableWidget->setHorizontalHeaderLabels(header2);
 
     //设置表头字体加粗
-    QFont font = tableWidget->horizontalHeader()->font();
-    font.setBold(true);
-    tableWidget->horizontalHeader()->setFont(font);
+    QFont font1 = tableWidget->horizontalHeader()->font();
+    font1.setBold(true);
+    tableWidget->horizontalHeader()->setFont(font1);
     tableWidget->horizontalHeader()->setStretchLastSection(true); //设置充满表宽度
 //    tableWidget->verticalHeader()->setResizeMode(QHeaderView::ResizeToContents);
     tableWidget->verticalHeader()->setDefaultSectionSize(10); //设置行高
@@ -225,9 +229,9 @@ Widget::Widget(QWidget *parent) :
     table->setRowCount(5);//设置5行
 //    注意：如果内容超过5行，则无法显示超过3行的内容，所以需要看情况重新设置行数
 //    （4）设置表头内容
-    QStringList header;  //QString类型的List容器
-    header<<"学号"<<"姓名"<<"性别";//设置内容是学号、姓名、性别
-    table->setHorizontalHeaderLabels(header);//设置表头内容
+    QStringList header3;  //QString类型的List容器
+    header3<<"学号"<<"姓名"<<"性别";//设置内容是学号、姓名、性别
+    table->setHorizontalHeaderLabels(header3);//设置表头内容
 //    （5）设置表格文字内容
     QTableWidgetItem *name=new QTableWidgetItem();//创建一个Item
     name->setText("桃花庵");//设置内容
@@ -239,9 +243,9 @@ Widget::Widget(QWidget *parent) :
      dateTimeEdit->setCalendarPopup(true);//设置可以打开日历
      table->setCellWidget (1,2,dateTimeEdit);//加到第二行第三列中
 //    （7）设置表头的字体属性
-    QFont font ;//定义一个字体变量
-    font.setBold(true);  //设置粗体
-    table->horizontalHeader()->setFont(font);//把字体变量属性加进表头中
+    QFont font2 ;//定义一个字体变量
+    font2.setBold(true);  //设置粗体
+    table->horizontalHeader()->setFont(font2);//把字体变量属性加进表头中
 //    （8）设置表头的内容充满整个表格的宽度
     table->horizontalHeader()->setStretchLastSection(true); //设置表头充满表格的宽度
 //    （9）设置表头的高度
